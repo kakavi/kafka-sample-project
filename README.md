@@ -1,6 +1,6 @@
 # Apache Kafka With spring boot
 
-This Sample project demonstrates the proceedures to set up apache Kafka(an open source distributed event streaming platform)
+This Sample project demonstrates the proceedures to set up apache Kafka(an open source distributed event streaming platform).
 Kafka depends on ZooKeeper which is used to track the status of nodes inn the Kafka cluster and mentain the list of Kafka topics and messages.
 
 ## Installing Apache Kafka with zookeeper and kafdrop - using docker-compose
