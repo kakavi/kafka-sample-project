@@ -46,6 +46,6 @@ services:
 ### To access your Kafka application through the browser
   http://localhost:9000/
 
-With the above steps, running the springboot application will create a kafka topic with name kakavi and 
+With the above steps, running the springboot application will create a kafka topic with name ```kakavi``` and 
 will produce and consume messages from that topic
 
