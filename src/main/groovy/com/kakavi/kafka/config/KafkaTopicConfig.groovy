@@ -10,7 +10,7 @@ class KafkaTopicConfig {
 
     @Bean
     NewTopic kakavisTopic() {
-        return TopicBuilder.name("kakavi")
+        return TopicBuilder.name("multi-type-topic")
         .build()
     }
 }

@@ -1,5 +1,6 @@
 package com.kakavi.kafka
 
+import com.kakavi.kafka.model.Student
 import com.xenotech.commons.messages.SessionMessage
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.SpringApplication
@@ -15,7 +16,7 @@ class KafkaApplication {
     }
 
     @Bean
-    CommandLineRunner commandLineRunner(KafkaTemplate<String, SessionMessage> kafkaTemplate) {
+    CommandLineRunner commandLineRunner(KafkaTemplate<String, Object> multiTypeKafkaTemplate) {
         return (args) -> {
             SessionMessage messsage = SessionMessage.builder()
             .username("testkafka")
@@ -26,7 +27,15 @@ class KafkaApplication {
             .email("kafkatest")
             .dateLoggedIn(new Date())
             .build()
-            kafkaTemplate.send("kakavi", messsage)
+            multiTypeKafkaTemplate.send("multi-type-topic", messsage)
+
+            Student student = Student.builder()
+            .firstName("kakama")
+            .lastName("victor")
+            .age(37)
+            .payedAmount(new BigDecimal("45000000"))
+            .build()
+            multiTypeKafkaTemplate.send("multi-type-topic", student)
         }
     }
 
