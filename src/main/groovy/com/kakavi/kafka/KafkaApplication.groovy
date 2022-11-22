@@ -1,5 +1,6 @@
 package com.kakavi.kafka
 
+import com.xenotech.commons.messages.SessionMessage
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
@@ -14,9 +15,18 @@ class KafkaApplication {
     }
 
     @Bean
-    CommandLineRunner commandLineRunner(KafkaTemplate<String,String> kafkaTemplate) {
+    CommandLineRunner commandLineRunner(KafkaTemplate<String, SessionMessage> kafkaTemplate) {
         return (args) -> {
-            kafkaTemplate.send("kakavi", "hello kafka")
+            SessionMessage messsage = SessionMessage.builder()
+            .username("testkafka")
+            .authId("kafkatesti9")
+            .telephone("77777505033")
+            .firstName("kafkatest")
+            .lastName("kafkatest")
+            .email("kafkatest")
+            .dateLoggedIn(new Date())
+            .build()
+            kafkaTemplate.send("kakavi", messsage)
         }
     }
 

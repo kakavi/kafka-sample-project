@@ -10,16 +10,18 @@ sourceCompatibility = '17'
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.codehaus.groovy:groovy:3.0.12'
-    implementation 'org.springframework.kafka:spring-kafka'
+    implementation 'org.codehaus.groovy:groovy:3.0.13'
+    implementation 'org.springframework.kafka:spring-kafka:2.9.0'
+    implementation 'com.xenotech:xeno-commons:1.5-SNAPSHOT'
 
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'org.springframework.kafka:spring-kafka-test'
+    testImplementation 'org.springframework.kafka:spring-kafka-test:2.9.0'
 }
 
 tasks.named('test') {
