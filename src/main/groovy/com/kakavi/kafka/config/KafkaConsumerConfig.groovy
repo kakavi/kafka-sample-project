@@ -27,7 +27,6 @@ class KafkaConsumerConfig {
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers)
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringSerializer.class)
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class)
-        props.put(JsonDeserializer.TYPE_MAPPINGS, "session_tracker:com.xenotech.commons.messages.SessionMessage")
         return props
     }
 

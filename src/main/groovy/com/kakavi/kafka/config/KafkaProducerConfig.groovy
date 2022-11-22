@@ -1,6 +1,7 @@
 package com.kakavi.kafka.config
 
 import com.xenotech.commons.messages.SessionMessage
+import org.apache.kafka.clients.producer.Producer
 import org.apache.kafka.clients.producer.ProducerConfig
 import org.apache.kafka.common.serialization.StringSerializer
 import org.springframework.beans.factory.annotation.Value
@@ -22,7 +23,6 @@ class KafkaProducerConfig {
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers)
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class)
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class)
-        props.put(JsonSerializer.TYPE_MAPPINGS, "session_tracker:com.xenotech.commons.messages.SessionMessage")
         return props
     }
 
